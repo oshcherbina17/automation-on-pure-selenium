@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class WebSampleTest {
-    private static final Logger LOGGER = LogManager.getLogger();
     protected WebDriver driver;
 
     @BeforeTest
