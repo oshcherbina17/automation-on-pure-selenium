@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HomePage {
+public class HomePage extends AbstractPage{
 
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -33,12 +33,15 @@ public class HomePage {
     @FindBy(xpath = "//h3[contains(text(),'Searched for')]")
     private WebElement searchTitle;
 
+    @FindBy(xpath = "//h4[contains(text(),'By category')]")
+    private WebElement byCategoryText;
+
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public HomePage searchForProduct(String query) {
+   /* public void searchForProduct(String query) {
         searchInput.sendKeys(query);
         WebElement dynamicElement = (new WebDriverWait(driver, 15))
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button[data-test='search-submit']")));
@@ -48,8 +51,22 @@ public class HomePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return new HomePage(driver);
+    }*/
+  /* public void searchForProduct() {
+       sendKeys(searchInput, );
+   }*/
+
+    public void searchForProduct(String query) {
+        moveToElement(byCategoryText);
+        sendKeys(searchInput, query);
+        click(searchBtn);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
+
     public List<String> getProductTitles() {
         List<String> titles = new ArrayList<>();
         for (WebElement product : productNameList) {
