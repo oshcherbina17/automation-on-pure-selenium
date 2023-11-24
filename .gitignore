@@ -26,9 +26,6 @@ reports/*
 /reports
 src/main/java/com/hm
 src/test/java/com/hm
-src/test/java/com/listeners
-src/test/resources/testng.suites/tools_shop/tools-parallel-run.xml
-screenshots
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*

@@ -16,24 +16,10 @@ public abstract class AbstractTest {
     private static final Logger LOGGER = LogManager.getLogger();
 
     @BeforeTest
-  //  @Parameters("browser")
     public void setupRemoteWebDriver() {
- //   public void setupRemoteWebDriver(String browser) {
         String hubUrl = "http://localhost:4444/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-///////////////////////////////////////////////
-      /*  switch (browser.toLowerCase()) {
-            case "chrome":
-                capabilities.setBrowserName("chrome");
-                break;
-            case "firefox":
-                capabilities.setBrowserName("firefox");
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid browser specified: " + browser);
-        }*/
- ///////////////////////////////////////////////
         RemoteDriverFactory.createRemoteDriver(hubUrl, capabilities);
     }
 
