@@ -2,6 +2,7 @@ package com.toolshop.gui.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,7 +18,6 @@ public abstract class AbstractPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 15);
     }
-
 
     protected void click(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -37,6 +37,22 @@ public abstract class AbstractPage {
         LOGGER.info("Entered text '" + text + "' into element: " + element.toString());
     }
 
+    protected boolean isElementPresent(WebElement element) {
+        return element.isEnabled();
+    }
+
+    protected String getTitleText(WebElement element) {
+        return element.getText();
+    }
+
+
+    public WebElement waitForElementToBeClickable(WebElement locator) {
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public WebElement waitForVisibilityOfElement(WebElement element) {
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
 }
 

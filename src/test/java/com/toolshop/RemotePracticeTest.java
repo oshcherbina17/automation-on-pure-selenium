@@ -9,7 +9,6 @@ public class RemotePracticeTest extends AbstractTest {
     public void testRemotePracticeWebsite() {
         HomePage homePage = new HomePage(driver);
         homePage.searchForProduct("Hammer");
-
     }
 }
 
