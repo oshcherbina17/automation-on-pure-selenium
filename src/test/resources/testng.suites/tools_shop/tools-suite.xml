@@ -2,12 +2,12 @@
 <suite name="Parallel Test Suite" parallel="tests">
     <test name="Web Sample Test">
         <classes>
-            <class name="com.toolshop.WebSampleTest"/>
+            <class name="com.toolshop.RemotePracticeTest"/>
         </classes>
     </test>
     <test name="product Search Test">
         <classes>
-            <class name="com.toolshop.WebSampleTest">
+            <class name="com.toolshop.HomePageTest">
                 <methods>
                     <include name="productSearchTest"/>
                 </methods>
